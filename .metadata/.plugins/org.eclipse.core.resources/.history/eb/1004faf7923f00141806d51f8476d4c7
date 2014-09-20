@@ -1,0 +1,113 @@
+var loadFile = require("json");
+var sections = [];
+var rocketSec = [];
+var ventureSec = [];
+
+var  shuttleData = [
+    { info: {text: data.Shuttles[0].title}, infoTwo: {text: data.Shuttles[0].developer}, pic: {image: data.Shuttles[0].icon}, properties : {height: "100dp", searchableText: data.Shuttles[0].title, backgroundColor: "transparent"}},
+    { info: {text: data.Shuttles[1].title}, infoTwo: {text: data.Shuttles[1].developer}, pic: {image: data.Shuttles[1].icon}, properties : {height: "100dp", searchableText: data.Shuttles[1].title, backgroundColor: "transparent"}},
+    { info: {text: data.Shuttles[2].title}, infoTwo: {text: data.Shuttles[2].developer}, pic: {image: data.Shuttles[2].icon}, properties : {height: "100dp", searchableText: data.Shuttles[2].title, backgroundColor: "transparent"}},
+    { info: {text: data.Shuttles[3].title}, infoTwo: {text: data.Shuttles[3].developer}, pic: {image: data.Shuttles[3].icon}, properties : {height: "100dp", searchableText: data.Shuttles[3].title, backgroundColor: "transparent"}},
+    { info: {text: data.Shuttles[4].title}, infoTwo: {text: data.Shuttles[4].developer}, pic: {image: data.Shuttles[4].icon}, properties : {height: "100dp", searchableText: data.Shuttles[4].title, backgroundColor: "transparent"}},
+    
+];
+var  rocketData = [
+    { info: {text: data.Rockets[0].title}, infoTwo: {text: data.Rockets[0].developer}, pic: {image: data.Rockets[0].icon}, properties : {height: "100dp", searchableText: data.Rockets[0].title, backgroundColor: "transparent"}},
+    { info: {text: data.Rockets[1].title}, infoTwo: {text: data.Rockets[1].developer}, pic: {image: data.Rockets[1].icon}, properties : {height: "100dp", searchableText: data.Rockets[1].title, backgroundColor: "transparent"}},
+    { info: {text: data.Rockets[2].title}, infoTwo: {text: data.Rockets[2].developer}, pic: {image: data.Rockets[2].icon}, properties : {height: "100dp", searchableText: data.Rockets[2].title, backgroundColor: "transparent"}},
+    { info: {text: data.Rockets[3].title}, infoTwo: {text: data.Rockets[3].developer}, pic: {image: data.Rockets[3].icon}, properties : {height: "100dp", searchableText: data.Rockets[3].title, backgroundColor: "transparent"}},
+    { info: {text: data.Rockets[4].title}, infoTwo: {text: data.Rockets[4].developer}, pic: {image: data.Rockets[4].icon}, properties : {height: "100dp", searchableText: data.Rockets[4].title, backgroundColor: "transparent"}},
+ 
+];
+var  ventureData = [
+    { info: {text: data.Venture[0].title}, infoTwo: {text: data.Venture[0].developer}, pic: {image: data.Venture[0].icon}, properties : {height: "100dp", searchableText: data.Venture[0].title, backgroundColor: "transparent"}},
+  	{ info: {text: data.Venture[1].title}, infoTwo: {text: data.Venture[1].developer}, pic: {image: data.Venture[1].icon}, properties : {height: "100dp", searchableText: data.Venture[1].title, backgroundColor: "transparent"}},
+  	{ info: {text: data.Venture[2].title}, infoTwo: {text: data.Venture[2].developer}, pic: {image: data.Venture[2].icon}, properties : {height: "100dp", searchableText: data.Venture[2].title, backgroundColor: "transparent"}},
+  	{ info: {text: data.Venture[3].title}, infoTwo: {text: data.Venture[3].developer}, pic: {image: data.Venture[3].icon}, properties : {height: "100dp", searchableText: data.Venture[3].title, backgroundColor: "transparent"}},
+  	{ info: {text: data.Venture[4].title}, infoTwo: {text: data.Venture[4].developer}, pic: {image: data.Venture[4].icon}, properties : {height: "100dp", searchableText: data.Venture[4].title, backgroundColor: "transparent"}},
+ 
+    
+];
+var  ventureData = [
+    { info: {text: data.Venture[0].title}, infoTwo: {text: data.Venture[0].developer}, pic: {image: data.Venture[0].icon}, properties : {height: "100dp", searchableText: data.Venture[0].title, backgroundColor: "transparent"}},
+  	{ info: {text: data.Venture[1].title}, infoTwo: {text: data.Venture[1].developer}, pic: {image: data.Venture[1].icon}, properties : {height: "100dp", searchableText: data.Venture[1].title, backgroundColor: "transparent"}},
+  	{ info: {text: data.Venture[2].title}, infoTwo: {text: data.Venture[2].developer}, pic: {image: data.Venture[2].icon}, properties : {height: "100dp", searchableText: data.Venture[2].title, backgroundColor: "transparent"}},
+  	{ info: {text: data.Venture[3].title}, infoTwo: {text: data.Venture[3].developer}, pic: {image: data.Venture[3].icon}, properties : {height: "100dp", searchableText: data.Venture[3].title, backgroundColor: "transparent"}},
+  	{ info: {text: data.Venture[4].title}, infoTwo: {text: data.Venture[4].developer}, pic: {image: data.Venture[4].icon}, properties : {height: "100dp", searchableText: data.Venture[4].title, backgroundColor: "transparent"}},
+ 
+    
+];
+
+back.addEventListener("click", function(){
+	update.show();
+	events.show();
+	shuttle.show();
+	rocket.show();
+	venture.show();
+	sate.show();
+
+	menu.remove(listView);
+	menu.remove(rocketView);
+	menu.remove(ventureView);
+	menu.remove(back);
+});
+
+// Event Listeners
+button.addEventListener("click", function(){
+	menu.add(shuttle);
+	menu.add(rocket);
+	menu.add(venture);
+	menu.add(sate);
+	menu.add(update);
+	menu.add(events);
+	menu.add(logoTwo);
+	menu.open();
+	
+	win.close();
+});
+shuttle.addEventListener("click", function(){
+	menu.add(back);
+	menu.add(listView);
+	update.hide();
+	events.hide();
+	shuttle.hide();
+	rocket.hide();
+	venture.hide();
+	sate.hide();
+	
+});
+rocket.addEventListener("click", function(){
+	menu.add(back),
+	menu.add(rocketView);
+	update.hide();
+	events.hide();
+	shuttle.hide();
+	rocket.hide();
+	venture.hide();
+	sate.hide();
+	
+});
+venture.addEventListener("click", function(){
+	menu.add(back);
+	menu.add(ventureView);
+	update.hide();
+	events.hide();
+	shuttle.hide();
+	rocket.hide();
+	venture.hide();
+	sate.hide();
+});
+
+
+
+sectionOne.setItems(shuttleData);
+sections.push(sectionOne);
+listView.setSections(sections);
+
+sectionTwo.setItems(rocketData);
+rocketSec.push(sectionTwo);
+rocketView.setSections(rocketSec);
+
+sectionThree.setItems(ventureData);
+ventureSec.push(sectionThree);
+ventureView.setSections(ventureSec);

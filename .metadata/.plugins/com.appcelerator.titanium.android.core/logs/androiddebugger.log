@@ -1,0 +1,47 @@
+Logger started at: Friday, September 19, 2014 11:19:36 PM EDT
+Component: com.appcelerator.titanium.android.core
+Version: 1.0.0.1404432521
+[19:49.819] Sent: >21*1411183189820*version<
+[19:49.820] Recv: >1411183189820*1*3.0.0.1386497541<
+[19:49.821] Sent: >36*1411183189821*option*monitorXHR*true<
+[19:49.821] Recv: >1411183189821*!unknown option <monitorXHR><
+[19:49.821] Sent: >45*1411183189822*option*stepFiltersEnabled*false<
+[19:49.821] Recv: >1411183189822*!unknown option <stepFiltersEnabled><
+[19:49.821] Sent: >45*1411183189823*option*suspendOnFirstLine*false<
+[19:49.822] Recv: >1411183189823<
+[19:49.822] Sent: >46*1411183189824*option*suspendOnExceptions*false<
+[19:49.862] Recv: >1411183189824<
+[19:49.863] Sent: >41*1411183189825*option*suspendOnErrors*true<
+[19:49.921] Recv: >1411183189825<
+[19:49.921] Sent: >43*1411183189826*option*suspendOnKeywords*true<
+[19:49.922] Recv: >1411183189826<
+[19:49.922] Sent: >45*1411183189827*option*bypassConstructors*false<
+[19:49.922] Recv: >1411183189827*!unknown option <bypassConstructors><
+[19:49.922] Sent: >45*1411183189828*option*stepFiltersEnabled*false<
+[19:49.922] Recv: >1411183189828*!unknown option <stepFiltersEnabled><
+[19:49.923] Sent: >30*1411183189829*detailFormatters<
+[19:49.923] Recv: >1411183189829<
+[19:49.923] Sent: >20*1411183189830*enable<
+[19:49.923] Recv: >resumed*start<
+[19:49.925] Recv: >1411183189830<
+[19:49.925] Recv: >scripts*created*1|ti:/webview.js|anonymous|1|1<
+[19:49.925] Recv: >scripts*created*2|ti:/bootstrap.js|anonymous|1|1<
+[19:49.925] Recv: >scripts*created*3|ti:/kroll.js|anonymous|1|1<
+[19:49.925] Recv: >scripts*created*4|ti:/titanium.js|anonymous|1|1<
+[19:49.925] Recv: >scripts*created*5|ti:/properties.js|anonymous|1|1<
+[19:49.925] Recv: >scripts*created*6|ti:/events.js|anonymous|1|1<
+[19:49.926] Recv: >scripts*created*7|ti:/ui.js|anonymous|1|1<
+[19:49.926] Recv: >scripts*created*8|ti:/tabgroup.js|anonymous|1|1<
+[19:49.926] Recv: >scripts*created*9|ti:/console.js|anonymous|1|1<
+[19:49.926] Recv: >scripts*created*10|ti:/path.js|anonymous|1|1<
+[19:49.926] Recv: >scripts*created*11|ti:/invoker.js|anonymous|1|1<
+[19:49.926] Recv: >scripts*created*12|ti:/tab.js|anonymous|1|1<
+[19:49.926] Recv: >scripts*created*13|ti:/url.js|anonymous|1|1<
+[19:49.926] Recv: >scripts*created*14|ti:/httpclient.js|anonymous|1|1<
+[19:49.926] Recv: >scripts*created*15|ti:/listview.js|anonymous|1|1<
+[19:49.926] Recv: >scripts*created*16|ti:/network.js|anonymous|1|1<
+[19:49.926] Recv: >scripts*created*17|ti:/window.js|anonymous|1|1<
+[19:49.927] Recv: >scripts*created*18|ti:/module.js|anonymous|1|1<
+[19:50.69] Recv: >scripts*created*19|app:///app.js|anonymous|1|1<
+[19:50.414] Recv: >scripts*created*20|app:///operations.js|anonymous|1|1<
+----------End of file----------

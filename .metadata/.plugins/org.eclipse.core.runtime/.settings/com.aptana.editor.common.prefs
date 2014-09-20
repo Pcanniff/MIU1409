@@ -14,3 +14,4 @@ com.aptana.editor.common.characterPairColor=98,99,100
 currentLineColor=36,38,40
 deletionIndicationColor=66,14,9
 eclipse.preferences.version=1
+studio.maxColoredColumns=-1

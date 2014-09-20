@@ -2,12 +2,19 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="true" key="wrap"/>
-		<item value="false" key="isRegEx"/>
 		<item value="false" key="casesensitive"/>
+		<item value="false" key="isRegEx"/>
 		<item value="false" key="wholeword"/>
-		<item value="&quot;modes&quot;" key="selection"/>
+		<item value="&quot;20dp&quot;" key="selection"/>
 		<list key="findhistory">
-			<item value="&quot;modes&quot;"/>
+			<item value="&quot;20dp&quot;"/>
+			<item value="20dp"/>
+			<item value="140dp"/>
+			<item value="top: &quot;45dp&quot;,"/>
+			<item value="Sate["/>
+			<item value="Sate"/>
+			<item value="icon/venturedark.png"/>
+			<item value="icon/rocketdark.png"/>
 		</list>
 	</section>
 </section>

@@ -1,0 +1,135 @@
+var loadFile = require("json");
+var sections = [];
+var rocketSec = [];
+var ventureSec = [];
+
+var myTemplate = {
+    childTemplates: [
+        {                           
+            type: 'Ti.UI.ImageView', 
+            bindId: 'pic',           
+            properties: {            
+                width: '98dp', height: '98dp', left: 0
+            }
+        },
+         {                           
+            type: 'Ti.UI.Label', 
+            bindId: 'info',           
+            properties: {            
+                 left: "128dp", top: "30dp"
+            }
+        }, {                           
+            type: 'Ti.UI.Label', 
+            bindId: 'infoTwo',           
+            properties: {            
+              	left: "128dp", top: "50dp",
+              	color: '#ccc',
+                font: { fontFamily:'Arial', fontSize: '20dp', fontWeight:'italic' },
+                
+            }
+        }
+    ]
+};
+back = Ti.UI.createButton({
+	title: "Back",
+	font: {
+		fontFamily: "Roboto",
+		fontSize: "18dp"
+	},
+	top: "528dp",
+	right: "0dp",
+	height: "40dp",
+	width: "100dp",
+	backgroundColor: "transparent"
+});
+listView = Ti.UI.createListView({
+	top: "45dp",
+	bottom: "40dp",
+	backgroundColor: "#ccc",
+	templates: { 'template': myTemplate },
+	defaultItemTemplate: 'template',
+	searchView: search,
+	
+});
+rocketView = Ti.UI.createListView({
+	top: "45dp",
+	bottom: "40dp",
+	backgroundColor: "#ccc",
+	templates: { 'template': myTemplate },
+	defaultItemTemplate: 'template',
+	searchView: search,
+	
+});
+ventureView = Ti.UI.createListView({
+	top: "45dp",
+	bottom: "40dp",
+	backgroundColor: "#ccc",
+	templates: { 'template': myTemplate },
+	defaultItemTemplate: 'template',
+	searchView: search,
+	
+});
+
+var sectionOne = Ti.UI.createListSection({ 
+	headerTitle: "Shuttles",
+	backgroundColor: "#ccc"
+});
+var sectionTwo = Ti.UI.createListSection({ 
+	headerTitle: "Rockets",
+	backgroundColor: "#ccc"
+});
+var sectionThree = Ti.UI.createListSection({ 
+	headerTitle: "Rockets",
+	backgroundColor: "#ccc"
+});
+var  shuttleData = [
+    { info: {text: data.Shuttles[0].title}, infoTwo: {text: data.Shuttles[0].developer}, pic: {image: data.Shuttles[0].icon}, properties : {height: "100dp", searchableText: data.Shuttles[0].title}},
+    { info: {text: data.Shuttles[1].title}, infoTwo: {text: data.Shuttles[1].developer}, pic: {image: data.Shuttles[1].icon}, properties : {height: "100dp", searchableText: data.Shuttles[1].title}},
+    { info: {text: data.Shuttles[2].title}, infoTwo: {text: data.Shuttles[2].developer}, pic: {image: data.Shuttles[2].icon}, properties : {height: "100dp", searchableText: data.Shuttles[2].title}},
+    { info: {text: data.Shuttles[3].title}, infoTwo: {text: data.Shuttles[3].developer}, pic: {image: data.Shuttles[3].icon}, properties : {height: "100dp", searchableText: data.Shuttles[3].title}},
+    { info: {text: data.Shuttles[4].title}, infoTwo: {text: data.Shuttles[4].developer}, pic: {image: data.Shuttles[4].icon}, properties : {height: "100dp", searchableText: data.Shuttles[4].title}},
+    
+];
+var  rocketData = [
+    { info: {text: data.Rockets[0].title}, infoTwo: {text: data.Rockets[0].developer}, pic: {image: data.Rockets[0].icon}, properties : {height: "100dp", searchableText: data.Rockets[0].title}},
+    { info: {text: data.Rockets[1].title}, infoTwo: {text: data.Rockets[1].developer}, pic: {image: data.Rockets[1].icon}, properties : {height: "100dp", searchableText: data.Rockets[1].title}},
+    { info: {text: data.Rockets[2].title}, infoTwo: {text: data.Rockets[2].developer}, pic: {image: data.Rockets[2].icon}, properties : {height: "100dp", searchableText: data.Rockets[2].title}},
+    { info: {text: data.Rockets[3].title}, infoTwo: {text: data.Rockets[3].developer}, pic: {image: data.Rockets[3].icon}, properties : {height: "100dp", searchableText: data.Rockets[3].title}},
+    { info: {text: data.Rockets[4].title}, infoTwo: {text: data.Rockets[4].developer}, pic: {image: data.Rockets[4].icon}, properties : {height: "100dp", searchableText: data.Rockets[4].title}},
+ 
+];
+var  ventureData = [
+    { info: {text: data.Venture[0].title}, infoTwo: {text: data.Venture[0].developer}, pic: {image: data.Venture[0].icon}, properties : {height: "100dp", searchableText: data.Venture[0].title}},
+  	{ info: {text: data.Venture[1].title}, infoTwo: {text: data.Venture[1].developer}, pic: {image: data.Venture[1].icon}, properties : {height: "100dp", searchableText: data.Venture[1].title}},
+  	{ info: {text: data.Venture[2].title}, infoTwo: {text: data.Venture[2].developer}, pic: {image: data.Venture[2].icon}, properties : {height: "100dp", searchableText: data.Venture[2].title}},
+  	{ info: {text: data.Venture[3].title}, infoTwo: {text: data.Venture[3].developer}, pic: {image: data.Venture[3].icon}, properties : {height: "100dp", searchableText: data.Venture[3].title}},
+  	{ info: {text: data.Venture[4].title}, infoTwo: {text: data.Venture[4].developer}, pic: {image: data.Venture[4].icon}, properties : {height: "100dp", searchableText: data.Venture[4].title}},
+ 
+    
+];
+
+back.addEventListener("click", function(){
+	menu.remove(search);
+	menu.add(search);
+	update.show();
+	events.show();
+	search.show();
+	menu.remove(listView);
+	menu.remove(rocketView);
+	menu.remove(ventureView);
+});
+
+
+sectionOne.setItems(shuttleData);
+sections.push(sectionOne);
+listView.setSections(sections);
+
+sectionTwo.setItems(rocketData);
+rocketSec.push(sectionTwo);
+rocketView.setSections(rocketSec);
+
+sectionThree.setItems(ventureData);
+ventureSec.push(sectionThree);
+ventureView.setSections(ventureSec);
+
+console.log(data.Shuttles[0].title);

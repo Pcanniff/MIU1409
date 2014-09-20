@@ -1,10 +1,15 @@
 =run
+About\ Me\:launchMode=run
+About\ Me\:launchShortcut=com.appcelerator.titanium.mobile.ui.android.device.launchShortcut
 Canniff_Philip_ClientInformation\:launchMode=run
 Canniff_Philip_ClientInformation\:launchShortcut=com.appcelerator.titanium.mobile.ui.android.device.launchShortcut
-LAST_LAUNCH_TIMESTAMP=1410223235019
+Canniff_Philip_CodingYourApp\:launchMode=run
+Canniff_Philip_CodingYourApp\:launchShortcut=com.appcelerator.titanium.mobile.ui.ios.simulator.iphone.launchShortcut.iPhone Retina (3.5 inch)
+LAST_LAUNCH_TIMESTAMP=1411169397621
 Random\:launchMode=run
 Random\:launchShortcut=com.appcelerator.titanium.mobile.ui.android.device.launchShortcut
 eclipse.preferences.version=1
+iOS\ build\ and\ deploy\:ConsoleLogLevel=Debug
 preference.show.console.onError=true
 preference.studio.perspective.version=103
 test\:launchMode=run
