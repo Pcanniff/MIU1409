@@ -2,6 +2,18 @@
 data = {
 	"Shuttles" : [{
 
+		"title" : "OV-104 Atlantis",
+		"developer" : "NASA",
+		"first" : "3–7 October 1985",
+		"last" : "8–21 July 2011",
+		"missions" : "33",
+		"spaceTime" : "306 days, 14 hours, 12 minutes, 43 seconds",
+		"travel" : "125,935,769 mi",
+		"image" : "images/image4.jpg",
+		"icon" : "icon/shuttle.png"
+
+	},{
+
 		"title" : "OV-102 Columbia",
 		"developer" : "NASA",
 		"first" : "April 14, 1981",
@@ -11,7 +23,7 @@ data = {
 		"travel" : "125,204,911 mi",
 		"image" : "images/image1.jpg",
 		"icon" : "icon/shuttle.png",
-		// "video": "empty.wmv"
+		
 		
 	}, {
 
@@ -39,18 +51,6 @@ data = {
 
 	}, {
 
-		"title" : "OV-104 Atlantis",
-		"developer" : "NASA",
-		"first" : "3–7 October 1985",
-		"last" : "8–21 July 2011",
-		"missions" : "33",
-		"spaceTime" : "306 days, 14 hours, 12 minutes, 43 seconds",
-		"travel" : "125,935,769 mi",
-		"image" : "images/image4.jpg",
-		"icon" : "icon/shuttle.png"
-
-	}, {
-
 		"title" : "OV-105 Endeavour",
 		"developer" : "NASA",
 		"first" : "May 7, 1992 – May 16, 1992",
@@ -63,13 +63,15 @@ data = {
 
 	}],
 	"Rockets" : [{
-		"title" : "Falcon 1e",
+		"title" : "Falcon 9",
 		"developer" : "SpaceX",
-		"tall" : "24.7 metres (81 ft)",
-		"mass" : "46,760 kilograms (103,090 lb)",
-		"payload" : "1,010 kilograms (2,230 lb)",
-		"image" : "images/rocket1.jpg",
+		"tall" : "68.4 m (224 ft)",
+		"mass" : "505,846 kg (1,115,200 lb)",
+		"payload" : "13,150 kg (28,990 lb)",
+		"image" : "images/rocket3.jpeg",
 		"icon" : "icon/rocket.png"
+
+		
 	}, {
 
 		"title" : "Falcon 5",
@@ -82,12 +84,12 @@ data = {
 
 	}, {
 
-		"title" : "Falcon 9",
+		"title" : "Falcon 1e",
 		"developer" : "SpaceX",
-		"tall" : "68.4 m (224 ft)",
-		"mass" : "505,846 kg (1,115,200 lb)",
-		"payload" : "13,150 kg (28,990 lb)",
-		"image" : "images/rocket3.jpeg",
+		"tall" : "24.7 metres (81 ft)",
+		"mass" : "46,760 kilograms (103,090 lb)",
+		"payload" : "1,010 kilograms (2,230 lb)",
+		"image" : "images/rocket1.jpg",
 		"icon" : "icon/rocket.png"
 
 	}, {

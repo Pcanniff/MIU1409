@@ -1,11 +1,14 @@
+// Windows
 win = Ti.UI.createWindow({
 	backgroundImage: "images/space.jpg",
 	fullscreen: true
 });
 menu = Ti.UI.createWindow({
 	backgroundImage: "images/space.jpg",
-	fullscreen: true
+	fullscreen: true,
+	opacity: 1,
 });
+// Template
 var myTemplate = {
     childTemplates: [
         {                           
@@ -36,10 +39,7 @@ var myTemplate = {
         }
     ]
 };
-
-
-
-//Opening Screen Items
+//Visual Assets
 button = Ti.UI.createButton({
 	bottom: "50dp",
 	height: "100dp",
@@ -54,8 +54,6 @@ logo = Ti.UI.createImageView({
 	width: "80%",
 	image: "images/logo.png",
 });
-
-// Menu Screen Items
 logoTwo = Ti.UI.createImageView({
 	top: "0dp",
 	height: "10%",
@@ -64,7 +62,7 @@ logoTwo = Ti.UI.createImageView({
 	image: "images/logo.png",
 });
 shuttle = Ti.UI.createButton({
-	top: "85dp",
+	top: "60dp",
 	left: "25dp",
 	width: "120dp",
 	height: "120dp",
@@ -72,7 +70,7 @@ shuttle = Ti.UI.createButton({
 	opacity: "0.9"
 });
 rocket = Ti.UI.createButton({
-	top: "85dp",
+	top: "60dp",
 	right: "25dp",
 	height: "120dp",
 	width: "120dp",
@@ -80,7 +78,7 @@ rocket = Ti.UI.createButton({
 	opacity: "0.9"
 });
 venture = Ti.UI.createButton({
-	top: "221dp",
+	top: "190dp",
 	left: "25dp",
 	height: "120dp",
 	width: "120dp",
@@ -89,7 +87,7 @@ venture = Ti.UI.createButton({
 	
 });
 sate = Ti.UI.createButton({
-	top: "221dp",
+	top: "190dp",
 	right: "25dp",
 	height: "120dp",
 	width: "120dp",
@@ -97,7 +95,7 @@ sate = Ti.UI.createButton({
 	opacity: "0.9"
 });
 update = Ti.UI.createButton({
-	top: "357dp",
+	top: "320dp",
 	left: "25dp",
 	height: "120dp",
 	width: "120dp",
@@ -105,13 +103,14 @@ update = Ti.UI.createButton({
 	opacity: "0.9"
 });
 events = Ti.UI.createButton({
-	top: "357dp",
+	top: "320dp",
 	right: "25dp",
 	height: "120dp",
 	width: "120dp",
 	backgroundImage: "icon/events.png",
 	opacity: "0.9"
 }); 
+//Search Bars
 var search = Titanium.UI.createSearchBar({
     barColor:'transparent', 
     backgroundColor: 'transparent',
@@ -137,7 +136,6 @@ var searchFour = Titanium.UI.createSearchBar({
     showCancel:true,
     left: "0dp",
 });
-
 // List Views
 listView = Ti.UI.createListView({
 	top: "10%",
@@ -149,7 +147,6 @@ listView = Ti.UI.createListView({
 	searchView: search,
 	selectedBackgroundColor: "#f00"
 });
-
 rocketView = Ti.UI.createListView({
 	top: "10%",
 	height: "80%",
@@ -183,6 +180,7 @@ sateView = Ti.UI.createListView({
 	selectedBackgroundColor: "#f00"
 	
 });
+// List Sections
 var sectionOne = Ti.UI.createListSection({ 
 	headerTitle: "Shuttles",
 	backgroundColor: "#ccc"
@@ -213,10 +211,30 @@ back = Ti.UI.createButton({
 	backgroundColor: "transparent",
 	borderColor: "#fff"
 });
-
-
-
+home = Ti.UI.createButton({
+	title: "Home",
+	font: {
+		fontFamily: "Roboto",
+		fontSize: "30%"
+	},
+	
+	left: "0dp",
+	bottom: "0dp",
+	height: "10%",
+	width: "50%",
+	backgroundColor: "transparent",
+	borderColor: "#fff"
+});
+// Slider
+slider = Ti.UI.createSlider({
+	bottom: 10,
+    min: 15,
+    max: 100,
+    width: '90%',
+    value: 100
+});
 //Main Window Open
+
 win.add(logo);
 win.add(button);
 win.open();

@@ -1,0 +1,301 @@
+var loadFile = require("json");
+var sections = [];
+var rocketSec = [];
+var ventureSec = [];
+var sateSec = [];
+var shuttleArray = [];
+var rocketArray = [];
+var ventureArray = [];
+var sateArray = [];
+
+var getDetail = function(item) {
+	console.log(item.title);
+	var shuttleDetail = "Missions: " + item.mission + "\nFirst Flight: " + item.first + "\nLast Flight: " + item.last + "\nTime in Space: " + item.spaceTime + "\nTraveled Distance: " + item.travel;
+	var rocketDetail = "Height: " + item.tall + "\nMass: " + item.mass + "\nPayload to LEO: " + item.payload;
+	var ventureDetail = "Year Launched: " + item.launch;
+	var sateDetail = "Year Launched: " + item.launch;
+	
+	if (item.title == "Falcon 9" || "OV-104 Atlantis") {
+		var videoPlayer = Titanium.Media.createVideoPlayer({
+   			autoplay : true,
+    		backgroundColor : 'transparent',
+    		top: "50dp",
+			height: "35%",
+			width:"80%",
+			autoplay: false,
+    		mediaControlStyle : Titanium.Media.VIDEO_CONTROL_DEFAULT,
+    		scalingMode : Titanium.Media.VIDEO_SCALING_ASPECT_FIT
+});
+};
+	var detailWindow = Ti.UI.createWindow({
+		backgroundColor: "transparent",
+		backgroundImage: "images/space.jpg",
+		title: item.title,
+		titleAttributes: {
+			color : "#fff",
+			font : {
+				fontSize : "20dp",
+				fontFamily : "Helvetica",
+				fontWeight : "bold",
+				fontStyle : "italic"
+			}
+	},
+		fullscreen : true,
+		
+	});
+	var detailPic = Ti.UI.createImageView({
+		top: "20dp",
+		height: "55%",
+		width:"80%",
+		image: item.image,
+		borderColor: "#fff",
+		borderRadius: "100dp"
+		
+		
+	});
+	var detailText = Ti.UI.createLabel({
+		bottom: "50dp",
+		text: shuttleDetail,
+		color: "#fff",
+		font: {
+			fontSize: "18dp"
+		}
+	});
+	if (item.parent == "Rockets"){
+		detailText.text = rocketDetail;
+	} else if (item.parent == "Venture") {
+		detailText.text = ventureDetail;
+	} else if (item.parent == "Satellites") {
+		detailText.text = sateDetail;
+	};
+	
+	
+	detailWindow.add(detailText);
+	if (item.title == "OV-104 Atlantis") {
+		detailWindow.add(videoPlayer);
+		videoPlayer.url = "videos/atlantis.mp4";
+	} else if (item.title == "Falcon 9"){
+		detailWindow.add(videoPlayer);
+		videoPlayer.url = "videos/Falcon9.mp4";
+	} else {
+		detailWindow.add(detailPic);
+	}
+	detailWindow.open();
+	console.log(videoPlayer.url);
+	detailWindow.addEventListener("click", function() {
+		this.close();
+		
+	});
+};
+for (i = 0; i < data.Shuttles.length; i++){
+	var  shuttleData = 
+    { info: {
+    		text: data.Shuttles[i].title}, 
+    		infoTwo: {
+    			text: data.Shuttles[i].developer},
+    		pic: {
+    			image: data.Shuttles[i].icon},
+    		properties : {
+    			parent: "Shuttles",
+    			height: "100dp",
+    			searchableText: data.Shuttles[i].title,
+    			backgroundColor: "transparent",
+    			title:  data.Shuttles[i].title,
+    			image: data.Shuttles[i].image,
+    			video: data.Shuttles[i].video,
+    			first: data.Shuttles[i].first,
+    			last: data.Shuttles[i].last,
+    			mission: data.Shuttles[i].missions,
+    			spaceTime: data.Shuttles[i].spaceTime,
+    			travel: data.Shuttles[i].travel
+    	}};
+    	shuttleArray.push(shuttleData);
+};
+for (i = 0; i < data.Rockets.length; i++){
+	var  rocketData = 
+    { info: {
+    		text: data.Rockets[i].title}, 
+    		infoTwo: {
+    			text: data.Rockets[i].developer},
+    		pic: {
+    			image: data.Rockets[i].icon},
+    		properties : {
+    			parent: "Rockets",
+    			height: "100dp",
+    			searchableText: data.Rockets[i].title,
+    			backgroundColor: "transparent",
+    			tall: data.Rockets[i].tall,
+    			mass: data.Rockets[i].mass,
+    			payload: data.Rockets[i].payload,
+    			title:  data.Rockets[i].title,
+    			image: data.Rockets[i].image,
+    			video: data.Rockets[i].video,
+    			
+    	}};
+    	rocketArray.push(rocketData);
+};
+for (i = 0; i < data.Venture.length; i++){
+	var  ventureData = 
+    { info: {
+    		text: data.Venture[i].title}, 
+    		infoTwo: {
+    			text: data.Venture[i].developer},
+    		pic: {
+    			image: data.Venture[i].icon},
+    		properties : {
+    			parent: "Venture",
+    			height: "100dp",
+    			searchableText: data.Venture[i].title,
+    			backgroundColor: "transparent",
+    			launch: data.Venture[i].first,
+    			title:  data.Venture[i].title,
+    			image: data.Venture[i].image,
+    			video: data.Venture[i].video,
+    			
+    	}};
+    	ventureArray.push(ventureData);
+};
+for (i = 0; i < data.Satellites.length; i++){
+	var  sateData = 
+    { info: {
+    		text: data.Satellites[i].title}, 
+    		infoTwo: {
+    			text: data.Satellites[i].developer},
+    		pic: {
+    			image: data.Satellites[i].icon},
+    		properties : {
+    			parent: "Satellites",
+    			height: "100dp",
+    			searchableText: data.Satellites[i].title,
+    			backgroundColor: "transparent",
+    			launch: data.Satellites[i].first,
+    			title:  data.Satellites[i].title,
+    			image: data.Satellites[i].image,
+    			video: data.Satellites[i].video,
+    			
+    	}};
+    	sateArray.push(sateData);
+};
+
+
+
+back.addEventListener("click", function(){
+	update.show();
+	events.show();
+	shuttle.show();
+	rocket.show();
+	venture.show();
+	sate.show();
+	slider.show();
+	menu.remove(home);
+	menu.remove(listView);
+	menu.remove(rocketView);
+	menu.remove(ventureView);
+	menu.remove(sateView);
+	menu.remove(back);
+});
+
+// Event Listeners
+button.addEventListener("click", function(){
+	menu.add(shuttle);
+	menu.add(rocket);
+	menu.add(venture);
+	menu.add(sate);
+	menu.add(update);
+	menu.add(events);
+	menu.add(logoTwo);
+	menu.add(slider);
+	menu.open();
+	
+	win.close();
+});
+shuttle.addEventListener("click", function(){
+	menu.add(back);
+	menu.add(home);
+	menu.add(listView);
+	update.hide();
+	events.hide();
+	shuttle.hide();
+	rocket.hide();
+	venture.hide();
+	slider.hide();
+	sate.hide();
+	
+});
+rocket.addEventListener("click", function(){
+	menu.add(back),
+	menu.add(home);
+	menu.add(rocketView);
+	update.hide();
+	events.hide();
+	shuttle.hide();
+	rocket.hide();
+	venture.hide();
+	slider.hide();
+	sate.hide();
+	
+});
+venture.addEventListener("click", function(){
+	menu.add(back);
+	menu.add(home);
+	menu.add(ventureView);
+	update.hide();
+	events.hide();
+	shuttle.hide();
+	rocket.hide();
+	venture.hide();
+	slider.hide();
+	sate.hide();
+});
+sate.addEventListener("click", function(){
+	menu.add(back);
+	menu.add(home);
+	menu.add(sateView);
+	update.hide();
+	events.hide();
+	shuttle.hide();
+	rocket.hide();
+	venture.hide();
+	slider.hide();
+	sate.hide();
+});
+home.addEventListener("click", function(){
+	menu.close();
+	win.open();
+});
+
+listView.addEventListener("itemclick", function(evt) {
+	
+	var theItem = evt.section.getItemAt(evt.itemIndex);
+	getDetail(theItem.properties);
+});
+rocketView.addEventListener("itemclick", function(evt) {
+	var theItem = evt.section.getItemAt(evt.itemIndex);
+	getDetail(theItem.properties);
+});
+ventureView.addEventListener("itemclick", function(evt) {
+	var theItem = evt.section.getItemAt(evt.itemIndex);
+	getDetail(theItem.properties);
+});
+sateView.addEventListener("itemclick", function(evt) {
+	var theItem = evt.section.getItemAt(evt.itemIndex);
+	getDetail(theItem.properties);
+});
+
+
+
+sectionOne.setItems(shuttleArray);
+sections.push(sectionOne);
+listView.setSections(sections);
+
+sectionTwo.setItems(rocketArray);
+rocketSec.push(sectionTwo);
+rocketView.setSections(rocketSec);
+
+sectionThree.setItems(ventureArray);
+ventureSec.push(sectionThree);
+ventureView.setSections(ventureSec);
+
+sectionFour.setItems(sateArray);
+sateSec.push(sectionFour);
+sateView.setSections(sateSec);

@@ -1,3 +1,4 @@
+// Declarations
 var loadFile = require("json");
 var sections = [];
 var rocketSec = [];
@@ -8,13 +9,27 @@ var rocketArray = [];
 var ventureArray = [];
 var sateArray = [];
 
+
+// Detail Window Function
 var getDetail = function(item) {
-	console.log(item);
+	console.log(item.title);
 	var shuttleDetail = "Missions: " + item.mission + "\nFirst Flight: " + item.first + "\nLast Flight: " + item.last + "\nTime in Space: " + item.spaceTime + "\nTraveled Distance: " + item.travel;
 	var rocketDetail = "Height: " + item.tall + "\nMass: " + item.mass + "\nPayload to LEO: " + item.payload;
 	var ventureDetail = "Year Launched: " + item.launch;
 	var sateDetail = "Year Launched: " + item.launch;
-
+	
+	if (item.title == "Falcon 9" || "OV-104 Atlantis") {
+		var videoPlayer = Titanium.Media.createVideoPlayer({
+   			autoplay : true,
+    		backgroundColor : 'transparent',
+    		top: "50dp",
+			height: "35%",
+			width:"80%",
+			autoplay: false,
+    		mediaControlStyle : Titanium.Media.VIDEO_CONTROL_DEFAULT,
+    		scalingMode : Titanium.Media.VIDEO_SCALING_ASPECT_FIT
+});
+};
 	var detailWindow = Ti.UI.createWindow({
 		backgroundColor: "transparent",
 		backgroundImage: "images/space.jpg",
@@ -55,14 +70,26 @@ var getDetail = function(item) {
 		detailText.text = ventureDetail;
 	} else if (item.parent == "Satellites") {
 		detailText.text = sateDetail;
-	} 
-	detailWindow.add(detailPic);
+	};
+	
+	
 	detailWindow.add(detailText);
+	if (item.title == "OV-104 Atlantis") {
+		detailWindow.add(videoPlayer);
+		videoPlayer.url = "videos/atlantis.mp4";
+	} else if (item.title == "Falcon 9"){
+		detailWindow.add(videoPlayer);
+		videoPlayer.url = "videos/Falcon9.mp4";
+	} else {
+		detailWindow.add(detailPic);
+	}
 	detailWindow.open();
 	detailWindow.addEventListener("click", function() {
 		this.close();
+		
 	});
 };
+// Property Loops
 for (i = 0; i < data.Shuttles.length; i++){
 	var  shuttleData = 
     { info: {
@@ -153,8 +180,7 @@ for (i = 0; i < data.Satellites.length; i++){
     	sateArray.push(sateData);
 };
 
-
-
+// Event Listeners
 back.addEventListener("click", function(){
 	update.show();
 	events.show();
@@ -162,15 +188,14 @@ back.addEventListener("click", function(){
 	rocket.show();
 	venture.show();
 	sate.show();
-
+	slider.show();
+	menu.remove(home);
 	menu.remove(listView);
 	menu.remove(rocketView);
 	menu.remove(ventureView);
 	menu.remove(sateView);
 	menu.remove(back);
 });
-
-// Event Listeners
 button.addEventListener("click", function(){
 	menu.add(shuttle);
 	menu.add(rocket);
@@ -179,53 +204,65 @@ button.addEventListener("click", function(){
 	menu.add(update);
 	menu.add(events);
 	menu.add(logoTwo);
+	menu.add(slider);
 	menu.open();
 	
 	win.close();
 });
 shuttle.addEventListener("click", function(){
 	menu.add(back);
+	menu.add(home);
 	menu.add(listView);
 	update.hide();
 	events.hide();
 	shuttle.hide();
 	rocket.hide();
 	venture.hide();
+	slider.hide();
 	sate.hide();
 	
 });
 rocket.addEventListener("click", function(){
 	menu.add(back),
+	menu.add(home);
 	menu.add(rocketView);
 	update.hide();
 	events.hide();
 	shuttle.hide();
 	rocket.hide();
 	venture.hide();
+	slider.hide();
 	sate.hide();
 	
 });
 venture.addEventListener("click", function(){
 	menu.add(back);
+	menu.add(home);
 	menu.add(ventureView);
 	update.hide();
 	events.hide();
 	shuttle.hide();
 	rocket.hide();
 	venture.hide();
+	slider.hide();
 	sate.hide();
 });
 sate.addEventListener("click", function(){
 	menu.add(back);
+	menu.add(home);
 	menu.add(sateView);
 	update.hide();
 	events.hide();
 	shuttle.hide();
 	rocket.hide();
 	venture.hide();
+	slider.hide();
 	sate.hide();
 });
-
+home.addEventListener("click", function(){
+	menu.close();
+	win.open();
+});
 listView.addEventListener("itemclick", function(evt) {
 	
 	var theItem = evt.section.getItemAt(evt.itemIndex);
@@ -243,9 +280,11 @@ sateView.addEventListener("itemclick", function(evt) {
 	var theItem = evt.section.getItemAt(evt.itemIndex);
 	getDetail(theItem.properties);
 });
+slider.addEventListener('change', function(evt){
+	menu.opacity = (evt.value/100);
+});
 
-
-
+// Ether
 sectionOne.setItems(shuttleArray);
 sections.push(sectionOne);
 listView.setSections(sections);
